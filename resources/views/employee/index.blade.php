@@ -16,28 +16,31 @@
                 </div>
             @endif
             <div class="card">
-                <div class="card-header">{{ __('Company Section') }}</div>
+                <div class="card-header">{{ __('Employee Section') }} <a href="{{route('employee.create')}}" style="float: right">{{ __('Add') }}</a></div>
 
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
                         <tr>
                             <th>{{ __('ID') }}</th>
-                            <th>{{ __('Name') }}</th>
+                            <th>{{ __('Employee Name') }}</th>
                             <th>{{ __('Email') }}</th>
+                            <th>{{ __('Company Name') }}</th>
                             <th>{{ __('Details') }}</th>
                             <th>{{ __('Action') }}</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($items as $item)
+                        @foreach($employees as $employee)
                             <tr>
-                                <td>{{$item->id}}</td>
-                                <td>{{$item->name}}</td>
-                                <td>{{$item->email}}</td>
-                                <td>{{$item->detail}}</td>
-                                <td><a href="{{route('company.edit',['item' => $item->id])}}">{{ __('Edit') }}</a> /
-                                    <a href="#" onclick="deleterecord({{ $item->id }})">{{ __('Delete') }}</a></td>
+                                <td>{{$employee->id}}</td>
+                                <td>{{$employee->name}}</td>
+                                <td>{{$employee->email}}</td>
+                                <td>{{$employee->company->name}}</td>
+                                <td>{{$employee->detail}}</td>
+                                <td><a href="{{route('employee.edit',['employee' => $employee->id])}}">{{ __('Edit') }}</a> /
+                                    <a href="#" onclick="deleterecord({{ $employee->id }})">{{ __('Delete') }}</a>
+                                </td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -59,7 +62,7 @@
             let confirmBox = confirm('{{ __("Delete Message") }}');
 
             if(confirmBox){
-                let path = `{{ url('company/${id}') }}`;
+                let path = `{{ url('employee/${id}') }}`;
                 $('#delete-form').attr('action',path);
                 $('#delete-form').submit();
             }

@@ -16,7 +16,7 @@
 
                     {{ __('You are logged in!') }} <br>
 
-                        <a href="{{route('company.index')}}">{{ __('View Companies') }}</a>
+                        <a href="{{route('company.index')}}">{{ __('View Companies') }}</a> / <a href="{{route('employee.index')}}">{{ __('View Emlopyees') }}</a>
 
                 </div>
             </div>

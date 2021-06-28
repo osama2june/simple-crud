@@ -29,7 +29,7 @@
 
                             <div class="form-group">
                                 <label for="email">{{ __('Email') }} *</label>
-                                <input type="email" name="email" value="{{ old('email',$item->email) }}" class="form-control" id="email" placeholder="{{__('Enter Email')}}" required>
+                                <input type="email" name="email" value="{{ old('email',$item->email) }}" class="form-control" id="email" placeholder="{{__('Enter Email')}}" required >
                             </div>
 
                             @error('email')
